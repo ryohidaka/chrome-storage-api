@@ -76,4 +76,21 @@ export const Storage = {
     set: async (items: SetItems, callback?: () => void) =>
       setter(StorageArea.Session, items, callback),
   },
+
+  /**
+   * This method registers a listener for changes in the Chrome storage area.
+   *
+   * @param callback - A function that will be called when a storage change event occurs.
+   *   This function takes two parameters:
+   *     - changes: Object mapping each key that changed to its corresponding StorageChange for that item.
+   *     - areaName: The name of the storage area ('sync', 'local', 'managed' or 'session') the changes are for.
+   */
+  onChange: (
+    callback: (
+      changes: { [key: string]: chrome.storage.StorageChange },
+      areaName: string,
+    ) => void,
+  ) => {
+    chrome.storage.onChanged.addListener(callback);
+  },
 };

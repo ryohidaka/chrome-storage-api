@@ -56,4 +56,24 @@ export const Storage = {
      */
     get: async (keys: StorageKeys) => getter(StorageArea.Managed, keys),
   },
+
+  /**
+   * Session storage area.
+   */
+  Session: {
+    /**
+     * Retrieves the value of the specified keys from the session storage area.
+     * @param keys The keys of the items to be retrieved.
+     * @returns A promise that resolves with the values of the keys.
+     */
+    get: async (keys: StorageKeys) => getter(StorageArea.Session, keys),
+
+    /**
+     * Sets the value of multiple items in the session storage area.
+     * @param items An object containing one or more key-value pairs to be set.
+     * @param callback Optional callback function to be executed after setting the value.
+     */
+    set: async (items: SetItems, callback?: () => void) =>
+      setter(StorageArea.Session, items, callback),
+  },
 };

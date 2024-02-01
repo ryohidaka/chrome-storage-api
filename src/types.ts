@@ -29,3 +29,10 @@ export enum StorageArea {
  * Type for storage keys. Can be a single string or an array of strings.
  */
 export type StorageKeys = string | string[];
+
+/**
+ * Type for setting multiple items in storage.
+ * This is an object where each property is a key in storage and its value is the data to be stored.
+ * The value can be of any type.
+ */
+export type SetItems = { [key: string]: any };

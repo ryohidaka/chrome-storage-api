@@ -19,11 +19,15 @@ const createMockGet = () =>
     return result;
   });
 
+const mockSet = jest.fn((_data, callback) => {
+  callback();
+});
+
 global.chrome = {
   storage: {
-    local: { get: createMockGet() },
-    sync: { get: createMockGet() },
-    managed: { get: createMockGet() },
-    session: { get: createMockGet() },
+    local: { get: createMockGet(), set: mockSet },
+    sync: { get: createMockGet(), set: mockSet },
+    managed: { get: createMockGet(), set: mockSet },
+    session: { get: createMockGet(), set: mockSet },
   },
 };

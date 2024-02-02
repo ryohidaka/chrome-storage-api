@@ -12,6 +12,16 @@ Helper for `chrome.storage` API.
 
 ## Notes
 
+To use the `chrome.storage` API, declare the `"storage"` permission in the [manifest](https://developer.chrome.com/docs/extensions/reference/manifest):
+
+```json
+{
+  "name": "My extension",
+
+  "permissions": ["storage"]
+}
+```
+
 ## Installation
 
 You can install this library using npm:
@@ -21,6 +31,69 @@ npm install chrome-storage-api
 ```
 
 ## Usage
+
+```typescript
+import { Storage } from "chrome-storage-api"
+
+// Local Storage
+Storage.Local.{get | set}
+
+// Sync Storage
+Storage.Sync.{get | set}
+
+// Managed Storage
+Storage.Managed.{get}
+
+// Session Storage
+Storage.Session.{get | set}
+```
+
+## Methods
+
+### `get`
+
+Gets one or more items from storage.
+
+```typescript
+import { Storage } from "chrome-storage-api"
+
+const singleResult = await Storage.Local.get("key1")
+console.log(singleResult)
+// Output: value1
+
+const multipleResult = awit Storage.Local.get(["key1", "key2"])
+console.log(multipleResult)
+// Output: [value1, value2]
+```
+
+### `set`
+
+Sets multiple items.
+
+```typescript
+import { Storage } from "chrome-storage-api";
+
+Storage.Local.set({ key3: "value3" }, () => console.log("Value 3 was set."));
+```
+
+### `onChange`
+
+Fired when one or more items change.
+
+```typescript
+import { Storage } from "chrome-storage-api";
+
+Storage.onChange((changes, areaName) => {
+  console.log(`New Value: ${changes.key1.newValue}`);
+  console.log(`Old Value: ${changes.key1.oldValue}`);
+  console.log(`Area Name: ${areaName}`);
+});
+
+// Outputs:
+//   New Value: new value1
+//   Old Value: value1
+//   Area Name: local
+```
 
 ## Link
 

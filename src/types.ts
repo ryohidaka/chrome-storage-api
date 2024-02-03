@@ -26,9 +26,9 @@ export enum StorageArea {
 }
 
 /**
- * Type for storage keys. Can be a single string or an array of strings.
+ * Type for storage keys. Can be a single string, an array of strings or object.
  */
-export type StorageKeys = string | string[];
+export type StorageKeys = string | string[] | Object;
 
 /**
  * Type for setting multiple items in storage.

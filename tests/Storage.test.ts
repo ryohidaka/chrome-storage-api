@@ -16,6 +16,15 @@ describe("Storage", () => {
 
       const results = await getter(area, ["key1", "key3"]);
       expect(results).toEqual(["value1", "value3"]);
+
+      const resultsWithDefaultValue = await getter(area, {
+        key4: "value4",
+        key5: "value5",
+      });
+      expect(resultsWithDefaultValue).toEqual({
+        key4: "value4",
+        key5: "value5",
+      });
     });
 
     it(`tests setter function for ${area}`, async () => {

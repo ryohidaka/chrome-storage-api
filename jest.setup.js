@@ -12,11 +12,13 @@ const createMockGet = () =>
     }
 
     // Multiple Result
-    const result = {};
-    keys.forEach((key) => {
-      result[key] = data[key];
-    });
-    return result;
+    if (Array.isArray(keys)) {
+      const result = {};
+      keys.forEach((key) => {
+        result[key] = data[key];
+      });
+      return result;
+    }
   });
 
 const mockSet = jest.fn((_data, callback) => {

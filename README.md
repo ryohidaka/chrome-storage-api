@@ -64,6 +64,13 @@ console.log(singleResult)
 const multipleResult = awit Storage.Local.get(["key1", "key2"])
 console.log(multipleResult)
 // Output: [value1, value2]
+
+const resultWithDefaultValue = awit Storage.Local.get({
+  key4: "value4",
+  key5: "value5",
+})
+console.log(resultWithDefaultValue)
+// Output: { key4: "value4", key5: "value5" }
 ```
 
 ### `set`

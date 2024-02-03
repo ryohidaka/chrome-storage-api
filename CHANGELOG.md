@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ryohidaka/chrome-storage-api/compare/v1.0.0...v1.1.0) (2024-02-03)
+
+
+### Features
+
+* Added option to specify default values. ([a8096d8](https://github.com/ryohidaka/chrome-storage-api/commit/a8096d8e50786f79ad0a8b367fa5348bad16d265))
+
 ## 1.0.0 (2024-02-02)
 
 

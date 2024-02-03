@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.0](https://github.com/ryohidaka/chrome-storage-api/compare/v1.1.0...v1.2.0) (2024-02-03)
+
+
+### Features
+
+* Add callback to gettter. ([7fddd21](https://github.com/ryohidaka/chrome-storage-api/commit/7fddd217b90366127e4ecec3de6478d426630818))
+
+
+### Bug Fixes
+
+* Rename items type. ([20f00a9](https://github.com/ryohidaka/chrome-storage-api/commit/20f00a904f7697102560f03719c392c5aa36227d))
+
 ## [1.1.0](https://github.com/ryohidaka/chrome-storage-api/compare/v1.0.0...v1.1.0) (2024-02-03)
 
 

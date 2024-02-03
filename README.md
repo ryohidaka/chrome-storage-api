@@ -55,23 +55,27 @@ Storage.Session.{get | set}
 Gets one or more items from storage.
 
 ```typescript
-import { Storage } from "chrome-storage-api"
+import { Storage } from "chrome-storage-api";
 
-const singleResult = await Storage.Local.get("key1")
-console.log(singleResult)
+// Get a single item from storage.
+const singleResult = await Storage.Local.get("key1");
+console.log(singleResult);
 // Output: value1
 
-const multipleResult = awit Storage.Local.get(["key1", "key2"])
-console.log(multipleResult)
+// Get multiple items from storage.
+const multipleResult = await Storage.Local.get(["key1", "key2"]);
+console.log(multipleResult);
 // Output: [value1, value2]
 
-const resultWithDefaultValue = awit Storage.Local.get({
+// Get items with default values.
+const resultWithDefaultValue = await Storage.Local.get({
   key4: "value4",
   key5: "value5",
-})
-console.log(resultWithDefaultValue)
+});
+console.log(resultWithDefaultValue);
 // Output: { key4: "value4", key5: "value5" }
 
+// Get items using a callback function.
 Storage.Local.get("key1", (items) => console.log(items));
 // Output: { key1: "value1" }
 ```

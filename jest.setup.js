@@ -1,5 +1,5 @@
 const createMockGet = () =>
-  jest.fn((keys) => {
+  jest.fn((keys, callback) => {
     const data = {
       key1: "value1",
       key2: "value2",
@@ -8,6 +8,9 @@ const createMockGet = () =>
 
     // Single Result
     if (typeof keys === "string") {
+      if (typeof callback === "function") {
+        callback({ [keys]: "value1" });
+      }
       return data[keys];
     }
 
@@ -17,6 +20,9 @@ const createMockGet = () =>
       keys.forEach((key) => {
         result[key] = data[key];
       });
+      if (typeof callback === "function") {
+        callback(result);
+      }
       return result;
     }
   });

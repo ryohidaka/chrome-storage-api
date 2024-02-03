@@ -71,6 +71,9 @@ const resultWithDefaultValue = awit Storage.Local.get({
 })
 console.log(resultWithDefaultValue)
 // Output: { key4: "value4", key5: "value5" }
+
+Storage.Local.get("key1", (items) => console.log(items));
+// Output: { key1: "value1" }
 ```
 
 ### `set`

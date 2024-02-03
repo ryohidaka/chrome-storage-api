@@ -12,9 +12,11 @@ export const Storage = {
     /**
      * Retrieves the value of the specified keys from the local storage area.
      * @param keys The keys of the items to be retrieved.
+     * @param callback Optional callback function to be executed after retrieving the value. The function takes the retrieved items as a parameter.
      * @returns A promise that resolves with the values of the keys.
      */
-    get: async (keys: StorageKeys) => getter(StorageArea.Local, keys),
+    get: async (keys: StorageKeys, callback?: (items: Items) => void) =>
+      getter(StorageArea.Local, keys, callback),
 
     /**
      * Sets the value of multiple items in the local storage area.
@@ -32,9 +34,11 @@ export const Storage = {
     /**
      * Retrieves the value of the specified keys from the sync storage area.
      * @param keys The keys of the items to be retrieved.
+     * @param callback Optional callback function to be executed after retrieving the value. The function takes the retrieved items as a parameter.
      * @returns A promise that resolves with the values of the keys.
      */
-    get: async (keys: StorageKeys) => getter(StorageArea.Sync, keys),
+    get: async (keys: StorageKeys, callback?: (items: Items) => void) =>
+      getter(StorageArea.Sync, keys, callback),
 
     /**
      * Sets the value of multiple items in the sync storage area.
@@ -52,9 +56,11 @@ export const Storage = {
     /**
      * Retrieves the value of the specified keys from the managed storage area.
      * @param keys The keys of the items to be retrieved.
+     * @param callback Optional callback function to be executed after retrieving the value. The function takes the retrieved items as a parameter.
      * @returns A promise that resolves with the values of the keys.
      */
-    get: async (keys: StorageKeys) => getter(StorageArea.Managed, keys),
+    get: async (keys: StorageKeys, callback?: () => void) =>
+      getter(StorageArea.Managed, keys, callback),
   },
 
   /**
@@ -64,9 +70,11 @@ export const Storage = {
     /**
      * Retrieves the value of the specified keys from the session storage area.
      * @param keys The keys of the items to be retrieved.
+     * @param callback Optional callback function to be executed after retrieving the value. The function takes the retrieved items as a parameter.
      * @returns A promise that resolves with the values of the keys.
      */
-    get: async (keys: StorageKeys) => getter(StorageArea.Session, keys),
+    get: async (keys: StorageKeys, callback?: () => void) =>
+      getter(StorageArea.Session, keys, callback),
 
     /**
      * Sets the value of multiple items in the session storage area.

@@ -9,19 +9,34 @@ describe("Storage", () => {
     StorageArea.Session,
   ];
 
+  const mockCallback = jest.fn();
+
   areas.forEach((area) => {
     it(`tests getter function for ${area}`, async () => {
-      const result = await getter(area, "key1");
+      const result = await getter(area, "key1", mockCallback);
       expect(result).toEqual("value1");
+      expect(mockCallback).toHaveBeenCalledWith({ key1: "value1" });
 
-      const results = await getter(area, ["key1", "key3"]);
+      const results = await getter(area, ["key1", "key3"], mockCallback);
       expect(results).toEqual(["value1", "value3"]);
+      expect(mockCallback).toHaveBeenCalledWith({
+        key1: "value1",
+        key3: "value3",
+      });
 
-      const resultsWithDefaultValue = await getter(area, {
+      const resultsWithDefaultValue = await getter(
+        area,
+        {
+          key4: "value4",
+          key5: "value5",
+        },
+        mockCallback,
+      );
+      expect(resultsWithDefaultValue).toEqual({
         key4: "value4",
         key5: "value5",
       });
-      expect(resultsWithDefaultValue).toEqual({
+      expect(mockCallback).toHaveBeenCalledWith({
         key4: "value4",
         key5: "value5",
       });

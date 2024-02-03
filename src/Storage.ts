@@ -1,4 +1,4 @@
-import { SetItems, StorageArea, StorageKeys } from "./types";
+import { Items, StorageArea, StorageKeys } from "./types";
 import { getter, setter } from "./utils";
 
 /**
@@ -21,7 +21,7 @@ export const Storage = {
      * @param items An object containing one or more key-value pairs to be set.
      * @param callback Optional callback function to be executed after setting the value.
      */
-    set: async (items: SetItems, callback?: () => void) =>
+    set: async (items: Items, callback?: () => void) =>
       setter(StorageArea.Local, items, callback),
   },
 
@@ -41,7 +41,7 @@ export const Storage = {
      * @param items An object containing one or more key-value pairs to be set.
      * @param callback Optional callback function to be executed after setting the value.
      */
-    set: async (items: SetItems, callback?: () => void) =>
+    set: async (items: Items, callback?: () => void) =>
       setter(StorageArea.Sync, items, callback),
   },
 
@@ -73,7 +73,7 @@ export const Storage = {
      * @param items An object containing one or more key-value pairs to be set.
      * @param callback Optional callback function to be executed after setting the value.
      */
-    set: async (items: SetItems, callback?: () => void) =>
+    set: async (items: Items, callback?: () => void) =>
       setter(StorageArea.Session, items, callback),
   },
 

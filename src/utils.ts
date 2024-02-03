@@ -1,4 +1,4 @@
-import { SetItems, StorageArea, StorageKeys } from "./types";
+import { Items, StorageArea, StorageKeys } from "./types";
 
 /**
  * Asynchronously retrieves the value of one or more keys from the storage.
@@ -31,7 +31,7 @@ export const getter = async (area: StorageArea, keys: StorageKeys) => {
  */
 export const setter = async (
   area: StorageArea,
-  items: SetItems,
+  items: Items,
   callback?: () => void | undefined,
 ) => {
   chrome.storage[area].set(items, () => {

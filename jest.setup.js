@@ -33,6 +33,7 @@ const mockSet = jest.fn((_data, callback) => {
 });
 
 const mockPush = jest.fn();
+const mockUnshift = jest.fn();
 
 global.chrome = {
   storage: {
@@ -40,21 +41,25 @@ global.chrome = {
       get: createMockGet(),
       set: mockSet,
       push: mockPush,
+      unshift: mockUnshift,
     },
     sync: {
       get: createMockGet(),
       set: mockSet,
       push: mockPush,
+      unshift: mockUnshift,
     },
     managed: {
       get: createMockGet(),
       set: mockSet,
       push: mockPush,
+      unshift: mockUnshift,
     },
     session: {
       get: createMockGet(),
       set: mockSet,
       push: mockPush,
+      unshift: mockUnshift,
     },
   },
 };

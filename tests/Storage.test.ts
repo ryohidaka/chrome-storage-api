@@ -1,5 +1,5 @@
 import { StorageArea } from "../src/types";
-import { getter, push, setter } from "../src/utils";
+import { getter, push, setter, unshift } from "../src/utils";
 
 describe("Storage", () => {
   const areas = [
@@ -54,6 +54,14 @@ describe("Storage", () => {
       const values = ["value1", "value2"];
 
       await push(area, "key4", values, callback);
+      expect(callback).toHaveBeenCalled();
+    });
+
+    it(`tests unshift function for ${area}`, async () => {
+      const callback = jest.fn();
+      const values = ["value1", "value2"];
+
+      await unshift(area, "key4", values, callback);
       expect(callback).toHaveBeenCalled();
     });
   });

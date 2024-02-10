@@ -12,7 +12,7 @@ describe("Storage", () => {
   const mockCallback = jest.fn();
 
   areas.forEach((area) => {
-    it(`tests getter function for ${area}`, async () => {
+    it(`[${area}] tests getter function`, async () => {
       const result = await getter(area, "key1", mockCallback);
       expect(result).toEqual("value1");
       expect(mockCallback).toHaveBeenCalledWith({ key1: "value1" });
@@ -42,14 +42,17 @@ describe("Storage", () => {
       });
     });
 
-    it(`tests setter function for ${area}`, async () => {
+    // Managed not allowed set functions.
+    if (area == "managed") return;
+
+    it(`[${area}] tests setter function`, async () => {
       const callback = jest.fn();
 
       await setter(area, { key4: "value4" }, callback);
       expect(callback).toHaveBeenCalled();
     });
 
-    it(`tests push function for ${area}`, async () => {
+    it(`[${area}] tests push function`, async () => {
       const callback = jest.fn();
       const values = ["value1", "value2"];
 
@@ -57,7 +60,7 @@ describe("Storage", () => {
       expect(callback).toHaveBeenCalled();
     });
 
-    it(`tests unshift function for ${area}`, async () => {
+    it(`[${area}] tests unshift function`, async () => {
       const callback = jest.fn();
       const values = ["value1", "value2"];
 

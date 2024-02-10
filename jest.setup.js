@@ -51,9 +51,6 @@ global.chrome = {
     },
     managed: {
       get: createMockGet(),
-      set: mockSet,
-      push: mockPush,
-      unshift: mockUnshift,
     },
     session: {
       get: createMockGet(),

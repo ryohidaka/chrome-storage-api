@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.3.0](https://github.com/ryohidaka/chrome-storage-api/compare/v1.2.0...v1.3.0) (2024-02-10)
+
+
+### Features
+
+* Add a process that performs a push on the array. ([fd080d9](https://github.com/ryohidaka/chrome-storage-api/commit/fd080d921bbf02a37504fb784bb1e6ae3b0a6961))
+* Add a process that performs a unshift on the array. ([4708e5d](https://github.com/ryohidaka/chrome-storage-api/commit/4708e5df8510b8862e721938e11213437fdda143))
+
+
+### Bug Fixes
+
+* Fixed to not test for update system when "area" is "managed". ([6cced3b](https://github.com/ryohidaka/chrome-storage-api/commit/6cced3b97c9763048313bdf1e4aa2694dd303b2a))
+* Remove unnecessary console output. ([fd6314c](https://github.com/ryohidaka/chrome-storage-api/commit/fd6314c1517e7bad0a0925bc1392dd73fe51d931))
+
 ## [1.2.0](https://github.com/ryohidaka/chrome-storage-api/compare/v1.1.0...v1.2.0) (2024-02-03)
 
 

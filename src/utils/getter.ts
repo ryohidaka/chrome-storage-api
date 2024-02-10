@@ -27,7 +27,6 @@ export const getter = async (
   for (const [key, defaultValue] of Object.entries(keys)) {
     res[key] = result && key in result ? result[key] : defaultValue;
   }
-  console.log(res);
   callback?.(res);
   return res;
 };

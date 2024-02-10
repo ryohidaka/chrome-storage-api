@@ -4,6 +4,7 @@ const createMockGet = () =>
       key1: "value1",
       key2: "value2",
       key3: "value3",
+      key4: ["value4", "value5"],
     };
 
     // Single Result
@@ -31,11 +32,29 @@ const mockSet = jest.fn((_data, callback) => {
   callback();
 });
 
+const mockPush = jest.fn();
+
 global.chrome = {
   storage: {
-    local: { get: createMockGet(), set: mockSet },
-    sync: { get: createMockGet(), set: mockSet },
-    managed: { get: createMockGet(), set: mockSet },
-    session: { get: createMockGet(), set: mockSet },
+    local: {
+      get: createMockGet(),
+      set: mockSet,
+      push: mockPush,
+    },
+    sync: {
+      get: createMockGet(),
+      set: mockSet,
+      push: mockPush,
+    },
+    managed: {
+      get: createMockGet(),
+      set: mockSet,
+      push: mockPush,
+    },
+    session: {
+      get: createMockGet(),
+      set: mockSet,
+      push: mockPush,
+    },
   },
 };

@@ -1,5 +1,5 @@
 import { Items, StorageArea, StorageKeys } from "./types";
-import { getter, setter } from "./utils";
+import { getter, push, setter } from "./utils";
 
 /**
  * Storage object that provides methods to interact with different storage areas.
@@ -25,6 +25,23 @@ export const Storage = {
      */
     set: async (items: Items, callback?: () => void) =>
       setter(StorageArea.Local, items, callback),
+
+    /**
+     * Pushes values to a specified key in the Chrome storage.
+     *
+     * @param {StorageArea} area - The storage area ('local', 'sync', or 'managed') where the data will be stored.
+     * @param {string} key - The key under which the data will be stored.
+     * @param {any[]} values - The values to be pushed to the array stored under the specified key.
+     * @param {() => void | undefined} [callback] - Optional callback function that will be executed after the data is stored.
+     *
+     * @returns {Promise<void>} Returns a Promise that resolves when the data has been stored.
+     * @throws {Error} Throws an error if the result is not an array.
+     */
+    push: async (
+      key: string,
+      values: any[],
+      callback?: () => void,
+    ): Promise<void> => push(StorageArea.Local, key, values, callback),
   },
 
   /**
@@ -47,6 +64,23 @@ export const Storage = {
      */
     set: async (items: Items, callback?: () => void) =>
       setter(StorageArea.Sync, items, callback),
+
+    /**
+     * Pushes values to a specified key in the Chrome storage.
+     *
+     * @param {StorageArea} area - The storage area ('local', 'sync', or 'managed') where the data will be stored.
+     * @param {string} key - The key under which the data will be stored.
+     * @param {any[]} values - The values to be pushed to the array stored under the specified key.
+     * @param {() => void | undefined} [callback] - Optional callback function that will be executed after the data is stored.
+     *
+     * @returns {Promise<void>} Returns a Promise that resolves when the data has been stored.
+     * @throws {Error} Throws an error if the result is not an array.
+     */
+    push: async (
+      key: string,
+      values: any[],
+      callback?: () => void,
+    ): Promise<void> => push(StorageArea.Sync, key, values, callback),
   },
 
   /**
@@ -83,6 +117,23 @@ export const Storage = {
      */
     set: async (items: Items, callback?: () => void) =>
       setter(StorageArea.Session, items, callback),
+
+    /**
+     * Pushes values to a specified key in the Chrome storage.
+     *
+     * @param {StorageArea} area - The storage area ('local', 'sync', or 'managed') where the data will be stored.
+     * @param {string} key - The key under which the data will be stored.
+     * @param {any[]} values - The values to be pushed to the array stored under the specified key.
+     * @param {() => void | undefined} [callback] - Optional callback function that will be executed after the data is stored.
+     *
+     * @returns {Promise<void>} Returns a Promise that resolves when the data has been stored.
+     * @throws {Error} Throws an error if the result is not an array.
+     */
+    push: async (
+      key: string,
+      values: any[],
+      callback?: () => void,
+    ): Promise<void> => push(StorageArea.Session, key, values, callback),
   },
 
   /**

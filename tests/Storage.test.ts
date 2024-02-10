@@ -1,5 +1,5 @@
 import { StorageArea } from "../src/types";
-import { getter, setter } from "../src/utils";
+import { getter, push, setter } from "../src/utils";
 
 describe("Storage", () => {
   const areas = [
@@ -46,6 +46,14 @@ describe("Storage", () => {
       const callback = jest.fn();
 
       await setter(area, { key4: "value4" }, callback);
+      expect(callback).toHaveBeenCalled();
+    });
+
+    it(`tests push function for ${area}`, async () => {
+      const callback = jest.fn();
+      const values = ["value1", "value2"];
+
+      await push(area, "key4", values, callback);
       expect(callback).toHaveBeenCalled();
     });
   });

@@ -36,16 +36,16 @@ npm install chrome-storage-api
 import { Storage } from "chrome-storage-api"
 
 // Local Storage
-Storage.Local.{get | set}
+Storage.Local.{get | set | push | unshift}
 
 // Sync Storage
-Storage.Sync.{get | set}
+Storage.Sync.{get | set | push | unshift}
 
 // Managed Storage
 Storage.Managed.{get}
 
 // Session Storage
-Storage.Session.{get | set}
+Storage.Session.{get | set | push | unshift}
 ```
 
 ## Methods
@@ -107,6 +107,34 @@ Storage.onChange((changes, areaName) => {
 //   New Value: new value1
 //   Old Value: value1
 //   Area Name: local
+```
+
+### `push`
+
+Pushes values to a specified key in the Chrome storage.
+
+```typescript
+import { Storage } from "chrome-storage-api";
+
+await Storage.Local.set({ key4: ["value1", "value2"] });
+await Storage.Local.push("key4", ["value3", "value4"]);
+
+Storage.Local.get("key4", (items) => console.log(items));
+// Output: Array(4)[value1, value2, value3, value4]
+```
+
+### `unshift`
+
+Unshifts values to a specified key in the Chrome storage.
+
+```typescript
+import { Storage } from "chrome-storage-api";
+
+await Storage.Local.set({ key5: ["value3", "value4"] });
+await Storage.Local.unshift("key5", ["value1", "value2"]);
+
+Storage.Local.get("key5", (items) => console.log(items));
+// Output: Array(4)[value1, value2, value3, value4]
 ```
 
 ## Link

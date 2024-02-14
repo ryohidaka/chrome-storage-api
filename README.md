@@ -109,7 +109,9 @@ Storage.onChange((changes, areaName) => {
 //   Area Name: local
 ```
 
-### `push`
+### Only in the case of an array
+
+#### `push`
 
 Pushes values to a specified key in the Chrome storage.
 
@@ -123,7 +125,7 @@ Storage.Local.get("key4", (items) => console.log(items));
 // Output: Array(4)[value1, value2, value3, value4]
 ```
 
-### `unshift`
+#### `unshift`
 
 Unshifts values to a specified key in the Chrome storage.
 
